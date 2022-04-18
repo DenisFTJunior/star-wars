@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
 import React from "react";
 import { spacingProps } from "../types/spacing";
+import { textProps } from "../types/text";
 
 const textSize: any = {
   xsm: "0.5rem",
@@ -10,16 +11,23 @@ const textSize: any = {
   xlg: "5rem",
 };
 
-type LocalProps = spacingProps & {
-  color?: string;
-  size?: string;
-  underline?: boolean;
-  element?: string;
-  children: JSX.Element[] | JSX.Element;
-};
+type LocalProps = spacingProps &
+  textProps & {
+    element?: string;
+    children: JSX.Element[] | JSX.Element;
+  };
 
-const generateStyle = ({ color, size, underline, margin }: LocalProps) =>
+const generateStyle = ({
+  color,
+  size,
+  underline,
+  margin,
+  bold,
+  italic,
+}: LocalProps) =>
   css(`
+    ${bold ? "font-weight: bold;" : ""}
+    ${italic ? "font-style: italic;" : ""}
     color: ${color ? color : "#222222"};
     font-size:${
       size ? (textSize[size] ? textSize[size] : size) : textSize["sm"]
@@ -48,29 +56,8 @@ const Text = (props: LocalProps) => {
     case "span":
       return <span className={style}>{props.children}</span>;
     default:
-      return <h3 className={style}>{props.children}</h3>;
+      return <span className={style}>{props.children}</span>;
   }
 };
 
-type WrapperProps = LocalProps & {
-  bold?: boolean;
-  italic?: boolean;
-};
-
-const WrapperText = ({ bold, italic, children, ...props }: WrapperProps) => {
-  if (bold)
-    return (
-      <b>
-        <Text {...props}>{children}</Text>
-      </b>
-    );
-  if (italic)
-    return (
-      <i>
-        <Text {...props}>{children}</Text>
-      </i>
-    );
-  return <Text {...props}>{children}</Text>;
-};
-
-export default WrapperText;
+export default Text;
