@@ -1,6 +1,8 @@
 import { css } from "@emotion/css";
 import React from "react";
 
+import { flexProps } from "../types/flex";
+
 type LocalProps = flexProps & {
   children: JSX.Element[] | JSX.Element;
 };

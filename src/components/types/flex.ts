@@ -1,4 +1,4 @@
-type flexProps = {
+export type flexProps = {
   flex: string | number;
   direction: string;
   wrap: boolean;
