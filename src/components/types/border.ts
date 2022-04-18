@@ -1,4 +1,4 @@
 export type borderProps = {
-  border: string;
-  borderRadius: string;
+  border?: string;
+  borderRadius?: string;
 };

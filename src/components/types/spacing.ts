@@ -1,5 +1,5 @@
 export type spacingProps = {
-    margin: string;
-    padding: string;
+    margin?: string;
+    padding?: string;
 };
   

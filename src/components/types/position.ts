@@ -1,8 +1,8 @@
 export type positionProps = {
-  zIndex: string;
+  zIndex: string | number;
   position: string;
-  top: string | number;
-  left: string | number;
-  rigth: string | number;
-  bottom: string | number;
+  top?: string | number;
+  left?: string | number;
+  rigth?: string | number;
+  bottom?: string | number;
 };
