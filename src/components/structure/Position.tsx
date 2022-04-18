@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
+import React from "react";
 
-import { getBoxShadow } from "../helpers/getBoxShadow";
 import { positionProps } from "../types/position";
 
 type LocalProps = positionProps & {
