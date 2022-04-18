@@ -8,6 +8,7 @@ import { spacingProps } from "../types/spacing";
 type LocalProps = sizeProps &
   spacingProps & {
     dp: DP;
+    children: JSX.Element[] | JSX.Element;
   };
 
 const generateStyle = ({
@@ -29,11 +30,7 @@ const generateStyle = ({
 `);
 };
 
-const Panel = ({
-  props,
-}: {
-  props: LocalProps & { children: JSX.Element[] | JSX.Element };
-}) => {
+const Panel = (props: LocalProps) => {
   const style = generateStyle(props);
   return <div className={style}>{props.children}</div>;
 };
