@@ -1,9 +1,9 @@
 export type flexProps = {
-  flex: string | number;
+  flex?: string | number;
   direction: string;
-  wrap: boolean;
+  wrap?: boolean;
   justify: string;
-  align: string;
-  alignContent: string;
-  gap: number;
+  align?: string;
+  alignContent?: string;
+  gap?: number;
 };
