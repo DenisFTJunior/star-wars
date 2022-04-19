@@ -25,6 +25,15 @@ const QUERY = gql`
         id
         name
       }
+      filmConnection: PersonFilmsConnection {
+        films {
+          id
+          title
+          releaseDate
+          director
+          producers
+        }
+      }
     }
   }
 `;

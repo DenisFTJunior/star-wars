@@ -1,3 +1,4 @@
+import { Film } from "./film";
 import { Planet } from "./planet";
 import { Species } from "./species";
 
@@ -15,4 +16,5 @@ export interface Character {
   mass: number;
   planet: Planet;
   species: Species;
+  filmConnection: { films: Film[] };
 }
