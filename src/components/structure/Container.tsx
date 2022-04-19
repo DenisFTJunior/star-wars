@@ -16,9 +16,9 @@ const generateStyle = ({
   width = "100%",
   minWidth = "",
   maxWidth = "",
-  heigth = "100%",
-  minHeigth = "",
-  maxHeigth = "",
+  height = "100%",
+  minHeight = "",
+  maxHeight = "",
   margin = "0",
   padding = "0",
   bgColor = "#fff",
@@ -28,9 +28,9 @@ const generateStyle = ({
   ${minWidth ? `min-width:${minWidth};` : ""}
   ${maxWidth ? `max-width:${maxWidth};` : ""}
   max-width:${maxWidth};
-  heigth:${heigth};
-  ${minHeigth ? `min-heigth:${minHeigth};` : ""}
-  ${maxHeigth ? `max-heigth:${maxHeigth};` : ""}
+  height:${height};
+  ${minHeight ? `min-height:${minHeight};` : ""}
+  ${maxHeight ? `max-height:${maxHeight};` : ""}
   margin: ${margin};
   padding: ${padding};
   background-color: ${bgColor};

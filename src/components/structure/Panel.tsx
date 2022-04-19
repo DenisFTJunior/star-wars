@@ -18,7 +18,7 @@ type LocalProps = sizeProps &
 const generateStyle = ({
   dp = DP.SOFT,
   width = "100%",
-  heigth = "100%",
+  height = "100%",
   margin = "0",
   padding = "0",
   borderRadius = "20px",
@@ -28,7 +28,7 @@ const generateStyle = ({
 
   return css(`
   width:${width};
-  heigth:${heigth};
+  height:${height};
   box-shadow: ${boxShadow};
   margin: ${margin};
   padding: ${padding};

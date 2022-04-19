@@ -1,8 +1,8 @@
 export type sizeProps = {
   width: string;
-  heigth: string;
+  height : string;
   maxWidth?: string;
-  maxHeigth?: string;
+  maxHeight?: string;
   minWidth?: string;
-  minHeigth?: string;
+  minHeight?: string;
 };
