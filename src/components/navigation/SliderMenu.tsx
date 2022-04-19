@@ -44,7 +44,7 @@ const SlideMenu = ({ style }: { style?: string }) => {
           <BsFillArrowLeftSquareFill size="2rem" color="#fff" />
         </Button>
         <MenuItem href="/" label="Home" />
-        <MenuItem href="/characters" label="Character" />
+        <MenuItem href="/character" label="Characters" />
       </Flex>
     </Panel>
   );
