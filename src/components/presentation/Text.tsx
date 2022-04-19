@@ -14,7 +14,7 @@ const textSize: any = {
 type LocalProps = spacingProps &
   textProps & {
     element?: string;
-    children: JSX.Element[] | JSX.Element;
+    children: JSX.Element[] | JSX.Element | string;
   };
 
 const generateStyle = ({
