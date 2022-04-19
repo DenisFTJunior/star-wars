@@ -5,7 +5,7 @@ import Flex from "../components/structure/Flex";
 
 export default function Home() {
   return (
-    <Flex direction="column">
+    <Flex direction="column" gap={3}>
       <Quotes />
       <Quotes />
       <Quotes />

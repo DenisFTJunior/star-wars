@@ -18,7 +18,7 @@ const defaultOptions: DefaultOptions = {
 };
 
 export const Client = new ApolloClient({
-  uri: `http://localhost:59270/`,
+  uri: `http://localhost:61475`,
   cache,
   resolvers: {},
   defaultOptions,

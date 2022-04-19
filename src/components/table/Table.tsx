@@ -1,24 +1,36 @@
 import { css } from "@emotion/css";
+import { path } from "ramda";
 import React from "react";
-import { Character } from "../../entities/character";
 
 import { sizeProps } from "../types/size";
 import TableRow from "./TableRow";
-import { option } from "./types/options";
+import { option, unformattedOption } from "./types/options";
 
 type LocalProps = sizeProps & {
   //Its any because i want to give liberty for use this table with any type of array
   data: any[];
-  options: option[];
+  options: unformattedOption[];
 };
 
-const formatOptionsValue = (options: option[], item: any) =>
-  options.map((option) => ({ ...option, value: item[option.value] }));
+const formatOptionsValue = (
+  options: unformattedOption[],
+  item: any
+): option[] =>
+  options.map((option) => ({
+    ...option,
+    value: path(
+      Array.isArray(option.value) ? option.value : [option.value],
+      item
+    ),
+  }));
 
 const generateStyle = ({ width, height }: LocalProps) =>
   css(`
   width:${width};
   height:${height};
+  margin: 2rem;
+  border:1px solid #757575;
+  border-radius:10px;
 `);
 
 const Table = (props: LocalProps) => {
@@ -35,6 +47,7 @@ const Table = (props: LocalProps) => {
         <TableRow
           width="100%"
           height="100%"
+          borderTop="1px solid #757575"
           options={formatOptionsValue(props.options, item)}
         />
       ))}
