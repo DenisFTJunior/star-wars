@@ -18,7 +18,7 @@ const BreadCrumb = ({
             <>
               <MenuItem
                 label={item.label}
-                href={`/${item.path}`}
+                href={item.path}
                 withoutBg
                 width="3rem"
                 padding="2px"

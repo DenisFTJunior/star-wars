@@ -1,15 +1,28 @@
 import { ApolloClient, DefaultOptions, InMemoryCache } from "@apollo/client";
 
-export const cache = new InMemoryCache();
+export const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        allPeople: {
+          keyArgs: false,
+          merge(existing = {}, incoming) {
+            return { ...existing, ...incoming };
+          },
+        },
+      },
+    },
+  },
+});
 
 const defaultOptions: DefaultOptions = {
   watchQuery: {
-    fetchPolicy: "cache-and-network",
+    fetchPolicy: "network-only",
     errorPolicy: "all",
     notifyOnNetworkStatusChange: true,
   },
   query: {
-    fetchPolicy: "no-cache",
+    fetchPolicy: "network-only",
     errorPolicy: "all",
   },
   mutate: {

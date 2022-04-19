@@ -49,6 +49,7 @@ const Table = (props: LocalProps) => {
           height="100%"
           borderTop="1px solid #757575"
           options={formatOptionsValue(props.options, item)}
+          key={item.id}
         />
       ))}
     </div>

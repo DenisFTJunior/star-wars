@@ -43,7 +43,12 @@ const TableRow = (props: LocalProps) => {
   return (
     <div className={style}>
       {props.options.map((option) => (
-        <TableCell width="100%" height="100%" flex={option.flex}>
+        <TableCell
+          key={`${option.value + Math.random()}`}
+          width="100%"
+          height="100%"
+          flex={option.flex}
+        >
           <Text
             element="span"
             bold={props.type === "header" ? true : false}

@@ -15,6 +15,7 @@ type LocalProps = spacingProps &
   textProps & {
     element?: string;
     children: JSX.Element[] | JSX.Element | string;
+    textAlign?: string;
   };
 
 const generateStyle = ({
@@ -24,6 +25,7 @@ const generateStyle = ({
   margin,
   bold,
   italic,
+  textAlign,
 }: LocalProps) =>
   css(`
     ${bold ? "font-weight: bold;" : ""}
@@ -34,6 +36,7 @@ const generateStyle = ({
     };
     text-decoration: ${underline ? "underline" : "none"};
     margin: ${margin || 0};
+    text-align:${textAlign || "center"};
 `);
 
 const Text = (props: LocalProps) => {

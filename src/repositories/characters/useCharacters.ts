@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { useEffect } from "react";
 
 import { Character } from "../../entities/character";
 import { Client } from "../config/client";
@@ -43,13 +44,16 @@ type Characters = {
   };
 };
 
-const useCharactersQuery = (endCursor, qte) => {
-  return useQuery<Characters>(QUERY, {
+const useCharactersQuery = () => {
+  const response = useQuery<Characters>(QUERY, {
     fetchPolicy: "network-only",
     nextFetchPolicy: "cache-first",
     client: Client,
-    variables: { first: qte, after: endCursor },
+    variables: { first: 5 },
+    notifyOnNetworkStatusChange: true,
   });
+
+  return response;
 };
 
 export default useCharactersQuery;

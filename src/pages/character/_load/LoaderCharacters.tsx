@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import Text from "../../../components/presentation/Text";
 import { Character } from "../../../entities/character";
 
@@ -18,17 +18,10 @@ export const useCharactersActions: Function = () => useContext(ActionContext);
 
 const LoaderCharacters = ({
   children,
-  qte,
-  endCursor,
 }: {
   children: JSX.Element | JSX.Element[];
-  qte: number;
-  endCursor: string;
 }) => {
-  const { data, loading, error, fetchMore } = useCharactersQuery(
-    endCursor,
-    qte
-  );
+  const { data, loading, error, fetchMore } = useCharactersQuery();
 
   if (loading) return <Text>Loading...</Text>;
   if (error) return <Text color="red">{error.message}</Text>;

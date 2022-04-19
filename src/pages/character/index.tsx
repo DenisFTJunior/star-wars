@@ -1,54 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+
 import BreadCrumb from "../../components/navigation/Breadcrumb";
 import Quotes from "../../components/presentation/Quotes";
 import Text from "../../components/presentation/Text";
 import Container from "../../components/structure/Container";
 import Flex from "../../components/structure/Flex";
-import Table from "../../components/table/Table";
-import { unformattedOption } from "../../components/table/types/options";
-import LoaderCharacters, {
-  useCharacters,
-  useCharactersState,
-} from "./_load/LoaderCharacters";
+import TableFotter from "../../components/table/TableFotter";
+import TableState from "../../components/table/TableState";
+import LoaderCharacters from "./_load/LoaderCharacters";
+import TableCharacter from "./_TableCharactor";
 
-const options: unformattedOption[] = [
-  {
-    label: "Name",
-    value: "name",
-    flex: 3,
-  },
-  {
-    label: "Home world",
-    value: ["planet", "name"],
-    flex: 1,
-  },
-  {
-    label: "Hair color",
-    value: "hairColor",
-    flex: 1,
-  },
-  {
-    label: "Eye color",
-    value: "eyeColor",
-    flex: 1,
-  },
-  {
-    label: "Skin color",
-    value: "skinColor",
-    flex: 1,
-  },
-  {
-    label: "Gender",
-    value: "gender",
-    flex: 1,
-  },
-];
-
-const CharactersPage = ({ setCursor, setQte, qte, cursor }) => {
-  const { allPeople, pageInfo } = useCharactersState();
-
+const CharactersPage = () => {
   return (
-    <Container height="100vh">
+    <Container minHeight="100vh">
       <Flex direction="column">
         <BreadCrumb
           options={[
@@ -56,7 +20,7 @@ const CharactersPage = ({ setCursor, setQte, qte, cursor }) => {
             { path: "/character", label: "Characters" },
           ]}
         />
-        <Quotes height="2rem" />
+        <Quotes height="4rem" />
       </Flex>
       <Text element="h2" size="lg">
         Characters
@@ -65,23 +29,14 @@ const CharactersPage = ({ setCursor, setQte, qte, cursor }) => {
         A list of all star wars characters
       </Text>
 
-      <Table data={allPeople.people} options={options} />
+      <TableState>
+        <LoaderCharacters>
+          <TableCharacter />
+          <TableFotter />
+        </LoaderCharacters>
+      </TableState>
     </Container>
   );
 };
 
-const PageWrapper = () => {
-  const [cursor, setCursor] = useState("");
-  const [qte, setQte] = useState(5);
-  return (
-    <LoaderCharacters endCursor={cursor} qte={qte}>
-      <CharactersPage
-        cursor={cursor}
-        setCursor={setCursor}
-        qte={qte}
-        setQte={setQte}
-      />
-    </LoaderCharacters>
-  );
-};
-export default PageWrapper;
+export default CharactersPage;
