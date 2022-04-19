@@ -12,10 +12,6 @@ import { DP } from "../types/dp";
 const SlideMenu = () => {
   const [open, setOpen] = useState<boolean>(false);
 
-  useEffect(() => {
-    console.log(open);
-  }, [open]);
-
   if (!open)
     return (
       <Position position="fixed" top={0} left={0} zIndex={10}>
