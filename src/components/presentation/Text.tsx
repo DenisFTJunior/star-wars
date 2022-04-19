@@ -4,10 +4,13 @@ import { spacingProps } from "../types/spacing";
 import { textProps } from "../types/text";
 
 const textSize: any = {
-  xsm: "0.5rem",
+  xsm: "0.75rem",
   sm: "1rem",
+  smmd: "1.5rem",
   md: "2rem",
+  mdlg: "1.5rem",
   lg: "3rem",
+  lgxlg: "1.5rem",
   xlg: "5rem",
 };
 
