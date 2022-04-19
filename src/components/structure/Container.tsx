@@ -22,6 +22,8 @@ const generateStyle = ({
   margin = "0",
   padding = "0",
   bgColor = "#fff",
+  border,
+  borderRadius,
 }: LocalProps) =>
   css(`
   width:${width};
@@ -31,6 +33,8 @@ const generateStyle = ({
   height:${height};
   ${minHeight ? `min-height:${minHeight};` : ""}
   ${maxHeight ? `max-height:${maxHeight};` : ""}
+  ${border ? `border:${border};` : ""}
+  ${borderRadius ? `border-radius:${borderRadius};` : ""}
   margin: ${margin};
   padding: ${padding};
   background-color: ${bgColor};
