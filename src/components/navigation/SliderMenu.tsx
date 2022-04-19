@@ -6,7 +6,6 @@ import Link from "../actions/Link";
 import Text from "../presentation/Text";
 import Flex from "../structure/Flex";
 import Panel from "../structure/Panel";
-import Position from "../structure/Position";
 import { DP } from "../types/dp";
 
 const SlideMenu = ({ style }: { style?: string }) => {
@@ -39,6 +38,7 @@ const SlideMenu = ({ style }: { style?: string }) => {
       dp={DP.MEDIUM}
       borderRadius="0"
       padding="20px"
+      style={style}
     >
       <Flex justify="flex-start" align="flex-start" direction="column" gap={1}>
         <Button onClick={() => setOpen(false)}>

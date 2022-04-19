@@ -14,6 +14,7 @@ const style = css`
     grid-row: 2 / auto-fill;
     grid-column: 2 / auto-fill;
     padding: 2rem;
+    align-items: start;
   }
 
   .slide-menu {
