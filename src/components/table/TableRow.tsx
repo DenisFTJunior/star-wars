@@ -11,7 +11,6 @@ import Text from "../presentation/Text";
 type LocalProps = sizeProps &
   flexProps &
   borderProps & {
-    children: JSX.Element[] | JSX.Element;
     options: option[];
     type?: string;
   };
