@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { BsList, BsFillArrowLeftSquareFill } from "react-icons/bs";
 
 import Button from "../actions/Button";
-import Link from "../actions/Link";
-import Text from "../presentation/Text";
 import Flex from "../structure/Flex";
 import Panel from "../structure/Panel";
 import { DP } from "../types/dp";
+import MenuItem from "./MenuItem";
 
 const SlideMenu = ({ style }: { style?: string }) => {
   const [open, setOpen] = useState<boolean>(false);
@@ -24,7 +23,7 @@ const SlideMenu = ({ style }: { style?: string }) => {
       >
         <Flex justify="center" align="flex-start" direction="row">
           <Button onClick={() => setOpen(true)}>
-            <BsList size="3rem" color="#fff" />
+            <BsList size="2rem" color="#fff" />
           </Button>
         </Flex>
       </Panel>
@@ -41,24 +40,11 @@ const SlideMenu = ({ style }: { style?: string }) => {
       style={style}
     >
       <Flex justify="flex-start" align="flex-start" direction="column" gap={1}>
-        <Button onClick={() => setOpen(false)}>
+        <Button hoverColor="#fff" onClick={() => setOpen(false)}>
           <BsFillArrowLeftSquareFill size="2rem" color="#fff" />
         </Button>
-        <Link href="/" bgColor="#545454" hoverColor="#747474" width="6rem">
-          <Text element="span" color="#fff">
-            Home
-          </Text>
-        </Link>
-        <Link
-          href="/characters"
-          bgColor="#545454"
-          hoverColor="#747474"
-          width="6rem"
-        >
-          <Text element="span" color="#fff">
-            Characters
-          </Text>
-        </Link>
+        <MenuItem href="/" label="Home" />
+        <MenuItem href="/characters" label="Character" />
       </Flex>
     </Panel>
   );

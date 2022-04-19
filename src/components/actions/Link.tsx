@@ -2,11 +2,13 @@ import { css } from "@emotion/css";
 import Link from "next/link";
 import React from "react";
 import { sizeProps } from "../types/size";
+import { spacingProps } from "../types/spacing";
 
 import { textProps } from "../types/text";
 
 type LocalProps = textProps &
-  sizeProps & {
+  sizeProps &
+  spacingProps & {
     disabled?: boolean;
     hoverColor?: string;
     hoverOpacity?: string;
@@ -21,10 +23,11 @@ const generateStyle = ({
   hoverOpacity,
   width,
   bgColor,
+  padding,
 }: LocalProps) => css`
   width: ${width || " 100%"};
   display: inline;
-  padding: 5px;
+  padding: ${padding || "5px"};
   text-decoration: ${underline ? "underline" : "none"};
   color: ${color} !important;
   cursor: pointer;
