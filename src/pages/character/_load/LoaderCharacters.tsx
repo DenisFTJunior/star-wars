@@ -1,29 +1,43 @@
 import React, { createContext, useContext } from "react";
-
 import Text from "../../../components/presentation/Text";
 import { Character } from "../../../entities/character";
-import useCharacterQuery from "../../../repositories/characters/useCharacter";
 
-type LocalCharacter = { person: Character };
+import useCharactersQuery from "../../../repositories/characters/useCharacters";
 
-const Context = createContext({} as LocalCharacter | undefined);
+type Characters = { allPeople: { people: Character[] } };
+
+const Context = createContext({} as Characters | undefined);
 const { Provider } = Context;
+const ActionContext = createContext({});
+const { Provider: ActionProvider } = ActionContext;
 
-export const useCharacterState: Function = () => useContext(Context);
-export const useCharacter: Function = () => useCharacterState()?.person;
+export const useCharactersState: Function = () => useContext(Context) || {};
+export const useCharacters: Function = () =>
+  useCharactersState()?.allPeople.people || [];
+export const useCharactersActions: Function = () => useContext(ActionContext);
 
-const LoaderCharacter = ({
+const LoaderCharacters = ({
   children,
-  id,
+  qte,
+  endCursor,
 }: {
   children: JSX.Element | JSX.Element[];
-  id: string;
+  qte: number;
+  endCursor: string;
 }) => {
-  const { data, loading, error } = useCharacterQuery(id);
+  const { data, loading, error, fetchMore } = useCharactersQuery(
+    endCursor,
+    qte
+  );
 
   if (loading) return <Text>Loading...</Text>;
+  if (error) return <Text color="red">{error.message}</Text>;
 
-  return <Provider value={data}>{children}</Provider>;
+  return (
+    <ActionProvider value={{ fetchMore }}>
+      <Provider value={data}>{children}</Provider>
+    </ActionProvider>
+  );
 };
 
-export default LoaderCharacter;
+export default LoaderCharacters;
