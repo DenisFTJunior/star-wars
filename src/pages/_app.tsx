@@ -1,7 +1,13 @@
-import '../styles/globals.css'
+import SlideMenu from "../components/navigation/SliderMenu";
+import "./_global.style.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <SlideMenu />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
