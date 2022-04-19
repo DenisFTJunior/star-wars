@@ -49,13 +49,18 @@ const TableRow = (props: LocalProps) => {
           height="100%"
           flex={option.flex}
         >
-          <Text
-            element="span"
-            bold={props.type === "header" ? true : false}
-            color={props.type === "header" ? "#000" : "#454545"}
-          >
-            {props.type === "header" ? option.label : option.value}
-          </Text>
+          <>
+            {!!option.render && option.render(option)}
+            {!option.render && (
+              <Text
+                element="span"
+                bold={props.type === "header" ? true : false}
+                color={props.type === "header" ? "#000" : "#454545"}
+              >
+                {props.type === "header" ? option.label : option.value}
+              </Text>
+            )}
+          </>
         </TableCell>
       ))}
     </div>

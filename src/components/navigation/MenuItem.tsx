@@ -27,7 +27,7 @@ const MenuItem = ({
       width={width || "6rem"}
       padding={padding || "10px"}
     >
-      <Text element="span" color={color || "#000"}>
+      <Text element="span" textAlign="center" color={color || "#000"}>
         {label}
       </Text>
     </Link>

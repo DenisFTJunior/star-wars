@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
 
 import Table from "../../components/table/Table";
-import TableFotter from "../../components/table/TableFotter";
 import { unformattedOption } from "../../components/table/types/options";
-import LoaderCharacters, {
-  useCharacters,
-  useCharactersActions,
-  useCharactersState,
-} from "./_load/LoaderCharacters";
-import TableState, {
-  useTableActions,
-  useTableState,
-} from "../../components/table/TableState";
+import { useCharacters, useCharactersState } from "./_load/LoaderCharacters";
+import { useTableActions } from "../../components/table/TableState";
+import Link from "../../components/actions/Link";
+import Text from "../../components/presentation/Text";
 
 const options: unformattedOption[] = [
   {
     label: "Name",
     value: "name",
     flex: 3,
+    render: ({ item, value }) => (
+      <Link href={`/character/${item?.id}`}>
+        <Text>{value}</Text>
+      </Link>
+    ),
   },
   {
     label: "Home world",
@@ -56,11 +55,7 @@ const TableCharacters = () => {
     setCursor(allPeople.pageInfo.endCursor);
   }, []);
 
-  return (
-    <>
-      <Table data={people} options={options} />
-    </>
-  );
+  return <Table data={people} options={options} />;
 };
 
 export default TableCharacters;

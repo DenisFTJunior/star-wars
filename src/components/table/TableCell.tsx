@@ -1,7 +1,7 @@
 import { css } from "@emotion/css";
 import React from "react";
-import { borderProps } from "../types/border";
 
+import { borderProps } from "../types/border";
 import { flexProps } from "../types/flex";
 import { sizeProps } from "../types/size";
 
@@ -11,7 +11,14 @@ type LocalProps = sizeProps &
     children: JSX.Element | string;
   };
 
-const generateStyle = ({ width, height, flex, justify, border, borderRadius }: LocalProps) =>
+const generateStyle = ({
+  width,
+  height,
+  flex,
+  justify,
+  border,
+  borderRadius,
+}: LocalProps) =>
   css(`
   display:flex;
   width:${width};
