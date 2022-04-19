@@ -1,8 +1,8 @@
 export type flexProps = {
   flex?: string | number;
-  direction: string;
+  direction?: string;
   wrap?: boolean;
-  justify: string;
+  justify?: string;
   align?: string;
   alignContent?: string;
   gap?: number;
