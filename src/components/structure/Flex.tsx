@@ -2,14 +2,18 @@ import { css } from "@emotion/css";
 import React from "react";
 
 import { flexProps } from "../types/flex";
+import { sizeProps } from "../types/size";
 
-type LocalProps = flexProps & {
-  children: JSX.Element[] | JSX.Element;
-};
+type LocalProps = flexProps &
+  sizeProps & {
+    children: JSX.Element[] | JSX.Element;
+  };
 
 const generateStyle = ({
   direction,
   wrap,
+  height,
+  width,
   justify,
   align,
   alignContent,
@@ -17,8 +21,8 @@ const generateStyle = ({
   flex,
 }: LocalProps) =>
   css(`
-    width:100%;
-    height:100%;
+    width:${width || "100%"};
+    ${height ? `height${height};` : ""}
     display: flex;
     flex: ${flex || "1"};
     flex-direction: ${direction || "row"};

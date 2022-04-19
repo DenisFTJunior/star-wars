@@ -3,3 +3,9 @@ export type option = {
   value: string;
   flex: number;
 };
+
+export type unformattedOption = {
+  label: string;
+  value: string | string[];
+  flex: number;
+};

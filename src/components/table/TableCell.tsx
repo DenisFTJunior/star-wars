@@ -11,15 +11,18 @@ type LocalProps = sizeProps &
     children: JSX.Element | string;
   };
 
-const generateStyle = ({ width, height, flex, justify, border }: LocalProps) =>
+const generateStyle = ({ width, height, flex, justify, border, borderRadius }: LocalProps) =>
   css(`
   display:flex;
   width:${width};
   height:${height};
+  padding:10px;
+  margin:5px;
   ${flex ? `flex:${flex} ` : ""}
   justify-content: ${justify || "center"};
   align-items: center;
-  ${border ? `border:${border}` : ""}
+  ${border ? `border:${border};` : ""}
+  ${borderRadius ? `border-radius:${borderRadius};` : ""}
 `);
 
 const TableCell = (props: LocalProps) => {
