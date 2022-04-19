@@ -22,6 +22,7 @@ const generateStyle = ({
   box-shadow: none;
   border: ${border || "none"};
   color: ${color} !important;
+  background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
   &:hover {
     ${hoverOpacity ? `opacity: ${hoverOpacity};` : ""}
@@ -38,7 +39,7 @@ const Button = ({
 }: {
   children: JSX.Element | JSX.Element[];
   onClick: Function;
-}) => {
+} & LocalProps) => {
   const style = generateStyle(props);
 
   const handleClick = (e) => {
@@ -46,7 +47,11 @@ const Button = ({
     onClick(e.target.value);
   };
 
-  return <button className={style}>{children}</button>;
+  return (
+    <button onClick={handleClick} className={style}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;
