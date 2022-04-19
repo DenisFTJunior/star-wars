@@ -13,7 +13,7 @@ const SlideMenu = ({ style }: { style?: string }) => {
 
   if (!open)
     return (
-      <Container minHeight="100vh">
+      <Container minHeight="100vh" height="100%">
         <Panel
           width="6rem"
           height="100%"

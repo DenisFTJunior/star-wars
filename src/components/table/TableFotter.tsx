@@ -57,7 +57,7 @@ const TableFotter = () => {
             <Button
               onClick={() => {
                 setQte(item);
-                fetchMore({ variables: { first: qte } });
+                fetchMore({ variables: { first: item } });
                 setPage(1);
               }}
             >
