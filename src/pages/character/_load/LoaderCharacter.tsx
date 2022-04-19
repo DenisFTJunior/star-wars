@@ -17,7 +17,7 @@ const LoaderCharacter = ({
   id,
 }: {
   children: JSX.Element | JSX.Element[];
-  id: string;
+  id?: string;
 }) => {
   const { data, loading, error } = useCharacterQuery(id);
 

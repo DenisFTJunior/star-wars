@@ -15,9 +15,9 @@ const TableFotter = () => {
   const lastPage = Math.ceil(total / qte);
 
   return (
-    <Container>
+    <Container margin="0 2rem">
       <Flex direction="row" justify="center" align="center" gap={1}>
-        <Flex direction="row" justify="space-evenly" align="center">
+        <Flex direction="row" justify="space-between" align="center">
           <>
             <Button
               width="5rem"
@@ -52,7 +52,7 @@ const TableFotter = () => {
             </Button>
           </>
         </Flex>
-        <Flex flex={1} direction="row" justify="center" align="center">
+        <Flex direction="row" justify="center" align="center">
           {[5, 10, 20].map((item) => (
             <Button
               onClick={() => {

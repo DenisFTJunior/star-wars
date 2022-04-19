@@ -13,6 +13,6 @@ export interface Character {
   edited: string;
   height: number;
   mass: number;
-  homeworld: Planet;
+  planet: Planet;
   species: Species;
 }

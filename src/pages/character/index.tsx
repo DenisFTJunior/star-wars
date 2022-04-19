@@ -14,21 +14,19 @@ const CharactersPage = () => {
   return (
     <Container minHeight="100vh">
       <Flex direction="column">
+        <Quotes height="4rem" />
         <BreadCrumb
           options={[
             { path: "/", label: "Home" },
             { path: "/character", label: "Characters" },
           ]}
         />
-        <Quotes height="4rem" />
-      </Flex>
-      <Text element="h2" size="lg">
-        Characters
-      </Text>
-      <Text element="span" margin="0 2rem">
-        A list of all star wars characters
-      </Text>
 
+        <Text element="h2" size="lg">
+          Characters
+        </Text>
+        <Text element="span">A list of all star wars characters</Text>
+      </Flex>
       <TableState>
         <LoaderCharacters>
           <TableCharacter />

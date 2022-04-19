@@ -25,8 +25,9 @@ const generateStyle = ({
   bgColor,
   padding,
 }: LocalProps) => css`
-  width: ${width || " 100%"};
+  width: ${width || "100%"};
   display: inline;
+  text-align: center;
   padding: ${padding || "5px"};
   text-decoration: ${underline ? "underline" : "none"};
   color: ${color} !important;

@@ -18,6 +18,7 @@ const formatOptionsValue = (
 ): option[] =>
   options.map((option) => ({
     ...option,
+    item: item,
     value: path(
       Array.isArray(option.value) ? option.value : [option.value],
       item

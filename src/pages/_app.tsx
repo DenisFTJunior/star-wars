@@ -3,6 +3,7 @@ import { css } from "@emotion/css";
 
 import Header from "../components/header";
 import SlideMenu from "../components/navigation/SliderMenu";
+import Background from "../components/extra/Background";
 
 const style = css`
   display: grid;
@@ -15,6 +16,7 @@ const style = css`
     grid-column: 2 / auto-fill;
     padding: 2rem;
     align-items: start;
+    background-color: rgba(0, 0, 0, 0);
   }
 
   .slide-menu {
@@ -40,7 +42,9 @@ function MyApp({ Component, pageProps }) {
       </div>
 
       <div className="main">
-        <Component {...pageProps} />
+        <Background>
+          <Component {...pageProps} />
+        </Background>
       </div>
     </div>
   );

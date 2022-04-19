@@ -9,6 +9,7 @@ type LocalProps = sizeProps &
   spacingProps &
   borderProps & {
     bgColor?: string;
+    flex?: number;
     children: JSX.Element[] | JSX.Element;
   };
 
@@ -24,8 +25,10 @@ const generateStyle = ({
   bgColor = "#fff",
   border,
   borderRadius,
+  flex,
 }: LocalProps) =>
   css(`
+  ${flex ? `flex:${flex}` : ""}
   width:${width};
   ${minWidth ? `min-width:${minWidth};` : ""}
   ${maxWidth ? `max-width:${maxWidth};` : ""}

@@ -44,7 +44,7 @@ const Button = ({
   onClick,
   ...props
 }: {
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element | JSX.Element[] | string;
   onClick: Function;
 } & LocalProps) => {
   const style = generateStyle(props);
