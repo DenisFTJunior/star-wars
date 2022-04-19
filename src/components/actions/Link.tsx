@@ -17,13 +17,15 @@ const generateStyle = ({
   hoverColor,
   hoverOpacity,
 }: LocalProps) => css`
+  width: 100%;
   display: inline;
+  padding: 5px;
   text-decoration: ${underline ? "underline" : "none"};
   color: ${color} !important;
   cursor: pointer;
   &:hover {
     ${hoverOpacity ? `opacity: ${hoverOpacity};` : ""}
-    ${hoverColor ? `color : ${hoverColor};` : ""}
+    ${hoverColor ? `background-color : ${hoverColor};` : ""}
   }
   ${disabled ? "cursor: not-allowed;" : ""}
   ${disabled ? "opacity: .3;" : ""}
@@ -36,7 +38,7 @@ const _Link = ({
 }: {
   children: JSX.Element | JSX.Element[];
   href: string;
-}) => {
+} & LocalProps) => {
   const style = generateStyle(props);
 
   return (
