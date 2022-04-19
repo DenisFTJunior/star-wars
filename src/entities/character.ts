@@ -1,3 +1,6 @@
+import { Planet } from "./planet";
+import { Species } from "./species";
+
 export interface Character {
   id: string;
   name: string;
@@ -10,4 +13,6 @@ export interface Character {
   edited: string;
   height: number;
   mass: number;
+  homeworld: Planet;
+  species: Species;
 }
