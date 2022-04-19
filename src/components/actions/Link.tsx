@@ -1,14 +1,17 @@
 import { css } from "@emotion/css";
 import Link from "next/link";
 import React from "react";
+import { sizeProps } from "../types/size";
 
 import { textProps } from "../types/text";
 
-type LocalProps = textProps & {
-  disabled?: boolean;
-  hoverColor?: string;
-  hoverOpacity?: string;
-};
+type LocalProps = textProps &
+  sizeProps & {
+    disabled?: boolean;
+    hoverColor?: string;
+    hoverOpacity?: string;
+    bgColor?: string;
+  };
 
 const generateStyle = ({
   underline,
@@ -16,13 +19,16 @@ const generateStyle = ({
   disabled,
   hoverColor,
   hoverOpacity,
+  width,
+  bgColor,
 }: LocalProps) => css`
-  width: 100%;
+  width: ${width || " 100%"};
   display: inline;
   padding: 5px;
   text-decoration: ${underline ? "underline" : "none"};
   color: ${color} !important;
   cursor: pointer;
+  ${bgColor ? `background-color : ${bgColor};` : ""}
   &:hover {
     ${hoverOpacity ? `opacity: ${hoverOpacity};` : ""}
     ${hoverColor ? `background-color : ${hoverColor};` : ""}

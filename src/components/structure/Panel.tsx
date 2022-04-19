@@ -12,6 +12,7 @@ type LocalProps = sizeProps &
   borderProps & {
     dp: DP;
     bgColor?: string;
+    style?: string;
     children: JSX.Element[] | JSX.Element;
   };
 
@@ -23,6 +24,7 @@ const generateStyle = ({
   padding = "0",
   borderRadius = "20px",
   bgColor = "#fff",
+  style = "",
 }: LocalProps) => {
   const boxShadow = getBoxShadow(dp);
 
@@ -34,6 +36,7 @@ const generateStyle = ({
   padding: ${padding};
   border-radius: ${borderRadius};
   background-color: ${bgColor};
+  ${style}
 `);
 };
 

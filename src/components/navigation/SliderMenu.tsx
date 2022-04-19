@@ -9,56 +9,58 @@ import Panel from "../structure/Panel";
 import Position from "../structure/Position";
 import { DP } from "../types/dp";
 
-const SlideMenu = () => {
+const SlideMenu = ({ style }: { style?: string }) => {
   const [open, setOpen] = useState<boolean>(false);
 
   if (!open)
     return (
-      <Position position="fixed" top={0} left={0} zIndex={10}>
-        <Panel
-          width="4rem"
-          height="100vh"
-          bgColor="#353535"
-          dp={DP.MEDIUM}
-          borderRadius="0"
-          padding="20px"
-        >
-          <Flex justify="center" align="flex-start" direction="row">
-            <Button onClick={() => setOpen(true)}>
-              <BsList size="3rem" color="#fff" />
-            </Button>
-          </Flex>
-        </Panel>
-      </Position>
-    );
-
-  return (
-    <Position position="fixed" top={0} left={0} zIndex={10}>
       <Panel
-        width="8rem"
+        width="6rem"
         height="100vh"
         bgColor="#353535"
         dp={DP.MEDIUM}
         borderRadius="0"
         padding="20px"
+        style={style}
       >
-        <Flex
-          justify="flex-start"
-          align="flex-start"
-          direction="column"
-          gap={2}
-        >
-          <Button onClick={() => setOpen(false)}>
-            <BsFillArrowLeftSquareFill size="2rem" color="#fff" />
+        <Flex justify="center" align="flex-start" direction="row">
+          <Button onClick={() => setOpen(true)}>
+            <BsList size="3rem" color="#fff" />
           </Button>
-          <Link href="/characters" hoverColor="#474545">
-            <Text element="span" color="#fff">
-              Characters
-            </Text>
-          </Link>
         </Flex>
       </Panel>
-    </Position>
+    );
+
+  return (
+    <Panel
+      width="6rem"
+      height="100vh"
+      bgColor="#353535"
+      dp={DP.MEDIUM}
+      borderRadius="0"
+      padding="20px"
+    >
+      <Flex justify="flex-start" align="flex-start" direction="column" gap={1}>
+        <Button onClick={() => setOpen(false)}>
+          <BsFillArrowLeftSquareFill size="2rem" color="#fff" />
+        </Button>
+        <Link href="/" bgColor="#545454" hoverColor="#747474" width="6rem">
+          <Text element="span" color="#fff">
+            Home
+          </Text>
+        </Link>
+        <Link
+          href="/characters"
+          bgColor="#545454"
+          hoverColor="#747474"
+          width="6rem"
+        >
+          <Text element="span" color="#fff">
+            Characters
+          </Text>
+        </Link>
+      </Flex>
+    </Panel>
   );
 };
 

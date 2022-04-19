@@ -8,7 +8,7 @@ import { spacingProps } from "../types/spacing";
 type LocalProps = sizeProps &
   spacingProps &
   borderProps & {
-    bgColor: string;
+    bgColor?: string;
     children: JSX.Element[] | JSX.Element;
   };
 
@@ -36,9 +36,9 @@ const generateStyle = ({
   background-color: ${bgColor};
 `);
 
-const Panel = (props: LocalProps) => {
+const Container = (props: LocalProps) => {
   const style = generateStyle(props);
   return <div className={style}>{props.children}</div>;
 };
 
-export default Panel;
+export default Container;
