@@ -50,7 +50,9 @@ const TableRow = (props: LocalProps) => {
           flex={option.flex}
         >
           <>
-            {!!option.render && option.render(option)}
+            {!!option.render &&
+              props.type !== "header" &&
+              option.render(option)}
             {!option.render && (
               <Text
                 element="span"

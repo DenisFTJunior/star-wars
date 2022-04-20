@@ -12,4 +12,6 @@ export type unformattedOption = {
   flex: number;
   item?: any[];
   render?: Function;
+  filter?: string;
+  sort?: string;
 };

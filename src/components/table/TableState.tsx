@@ -17,6 +17,8 @@ const TableState = ({
   const [qte, setQte] = useState(5);
   const [count, setCount] = useState();
   const [cursor, setCursor] = useState(false);
+  const [sort, setSort] = useState("name");
+  const [filter, setFilter] = useState("");
 
   return (
     <ActionProvider value={{ setPage, setQte, setCount, setCursor }}>
