@@ -25,7 +25,7 @@ const generateStyle = ({
   bgColor,
   padding,
 }: LocalProps) => css`
-  width: ${width || "100%"};
+  ${width ? `width:${width};` : ""}
   display: inline;
   text-align: center;
   padding: ${padding || "5px"};

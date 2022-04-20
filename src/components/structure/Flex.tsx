@@ -37,6 +37,7 @@ const generateStyle = ({
       onSmall
         ? `@media (max-width: 728px) {
       flex-direction: column;
+      gap:0;
     }`
         : ""
     }

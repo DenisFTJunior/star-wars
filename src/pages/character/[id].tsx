@@ -14,7 +14,7 @@ const CharacterPage = () => {
   const character = useCharacter();
   return (
     <Container minHeight="100vh" height="100%">
-      <Flex direction="column" height="100%">
+      <Flex direction="column" height="100%" alignContent="center" align="center" gap={2}>
         <Quotes height="4rem" />
         <BreadCrumb
           options={[
@@ -32,10 +32,16 @@ const CharacterPage = () => {
           {character?.name}
         </Text>
         <Text element="span">The information of {character?.name}</Text>
-        <Flex justify="center">
+        <Flex justify="center" onSmall>
           <CharCard character={character} />
         </Flex>
-        <Flex justify="center" wrap direction="row" onSmall>
+        <Flex
+          justify="center"
+          alignContent="center"
+          wrap
+          direction="row"
+          onSmall
+        >
           {character?.filmConnection?.films.map((film) => (
             <FilmCard film={film} key={`${film.releaseDate}+ ${film.title}`} />
           ))}

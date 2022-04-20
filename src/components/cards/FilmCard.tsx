@@ -13,7 +13,7 @@ import CardItem from "./CardItem";
 const FilmCard = ({ film }: { film: Film }) => {
   if (!film) return <Text element="span">Loading...</Text>;
   return (
-    <Container maxWidth="80%" width="25rem">
+    <Container maxWidth="100%" width="25rem" onSmallProps="width:50rem;">
       <Panel
         dp={DP.NONE}
         padding="20px"

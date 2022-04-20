@@ -21,6 +21,7 @@ const BreadCrumb = ({
         border="1px solid #757575"
         borderRadius="10px"
         margin="1rem 0"
+        onSmallProps="width:80%"
       >
         <Flex direction="row" justify="center" align="center" gap={1}>
           {options.map((item, index) => (

@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+
 import CharCard from "../../components/cards/CharCard";
+import Link from "../../components/actions/Link";
 import Container from "../../components/structure/Container";
 import Flex from "../../components/structure/Flex";
 import { useTableActions } from "../../components/table/TableState";
@@ -17,9 +19,11 @@ const CardsCharacter = () => {
 
   return (
     <Container showOnSmall>
-      <Flex onSmall justify="center" align="center">
+      <Flex onSmall justify="center" alignContent="center" align="center">
         {people.map((char) => (
-          <CharCard character={char} />
+          <Link href={`/character/${char.id}`} >
+            <CharCard character={char} />
+          </Link>
         ))}
       </Flex>
     </Container>

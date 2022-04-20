@@ -2,17 +2,17 @@ import { css } from "@emotion/css";
 import React from "react";
 
 import { borderProps } from "../types/border";
+import { onSmall } from "../types/onSmall";
 import { sizeProps } from "../types/size";
 import { spacingProps } from "../types/spacing";
 
 type LocalProps = sizeProps &
   spacingProps &
-  borderProps & {
+  borderProps &
+  onSmall & {
     bgColor?: string;
     flex?: number;
     children: JSX.Element[] | JSX.Element;
-    hideOnSmall?: boolean;
-    showOnSmall?: boolean;
   };
 
 const generateStyle = ({
@@ -30,6 +30,7 @@ const generateStyle = ({
   flex,
   hideOnSmall,
   showOnSmall,
+  onSmallProps,
 }: LocalProps) =>
   css(`
   ${showOnSmall ? "display:none;" : ""}
@@ -48,6 +49,7 @@ const generateStyle = ({
   @media (max-width: 728px) {
     ${hideOnSmall ? "display:none;" : ""}
     ${showOnSmall ? "display:block;" : ""}
+    ${onSmallProps}
   }
 `);
 

@@ -8,10 +8,21 @@ const textSize: any = {
   sm: "1rem",
   smmd: "1.5rem",
   md: "2rem",
-  mdlg: "1.5rem",
+  mdlg: "2.5rem",
   lg: "3rem",
-  lgxlg: "1.5rem",
+  lgxlg: "4rem",
   xlg: "5rem",
+};
+
+const textSizeOnSmall: any = {
+  xsm: "1.25rem",
+  sm: "1.75rem",
+  smmd: "2.5rem",
+  md: "3.25rem",
+  mdlg: "4.5rem",
+  lg: "6rem",
+  lgxlg: "8rem",
+  xlg: "10rem",
 };
 
 type LocalProps = spacingProps &
@@ -40,6 +51,15 @@ const generateStyle = ({
     text-decoration: ${underline ? "underline" : "none"};
     margin: ${margin || 0};
     text-align:${textAlign || "center"};
+    @media (max-width: 728px) {
+      font-size:${
+        size
+          ? textSizeOnSmall[size]
+            ? textSizeOnSmall[size]
+            : size
+          : textSizeOnSmall["sm"]
+      };
+    }
 `);
 
 const Text = (props: LocalProps) => {
