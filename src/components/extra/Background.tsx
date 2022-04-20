@@ -11,7 +11,7 @@ const animStar = keyframes`
 `;
 
 const style = css(`
-    max-height:100vh;
+    height:"100%";
     & .stars {
         width: 1px;
         height: 1px;

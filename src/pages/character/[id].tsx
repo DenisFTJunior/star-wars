@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import CharCard from "../../components/cards/CharCard";
+import FilmCard from "../../components/cards/FilmCard";
 
 import BreadCrumb from "../../components/navigation/Breadcrumb";
 import Quotes from "../../components/presentation/Quotes";
@@ -12,8 +13,8 @@ import LoaderCharacter, { useCharacter } from "./_load/LoaderCharacter";
 const CharacterPage = () => {
   const character = useCharacter();
   return (
-    <Container>
-      <Flex direction="column">
+    <Container minHeight="100vh" height="100%">
+      <Flex direction="column" height="100%">
         <Quotes height="4rem" />
         <BreadCrumb
           options={[
@@ -31,8 +32,13 @@ const CharacterPage = () => {
           {character?.name}
         </Text>
         <Text element="span">The information of {character?.name}</Text>
-        <Flex justify="flex-start">
+        <Flex justify="center">
           <CharCard character={character} />
+        </Flex>
+        <Flex justify="flex-start" wrap>
+          {character?.filmConnection?.films.map((film) => (
+            <FilmCard film={film} />
+          ))}
         </Flex>
       </Flex>
     </Container>

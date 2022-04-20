@@ -12,6 +12,7 @@ const style = css`
   grid-auto-flow: row;
 
   .main {
+    height: 100%;
     grid-row: 2 / auto-fill;
     grid-column: 2 / auto-fill;
     padding: 2rem;

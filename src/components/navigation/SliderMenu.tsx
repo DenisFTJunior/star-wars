@@ -23,7 +23,12 @@ const SlideMenu = ({ style }: { style?: string }) => {
           padding="20px"
           style={style}
         >
-          <Flex justify="center" align="flex-start" direction="row">
+          <Flex
+            justify="center"
+            align="flex-start"
+            direction="row"
+            height="100%"
+          >
             <Button onClick={() => setOpen(true)}>
               <BsList size="2rem" color="#fff" />
             </Button>
@@ -48,6 +53,7 @@ const SlideMenu = ({ style }: { style?: string }) => {
           align="flex-start"
           direction="column"
           gap={1}
+          height="100%"
         >
           <Button hoverColor="#fff" onClick={() => setOpen(false)}>
             <BsFillArrowLeftSquareFill size="2rem" color="#fff" />

@@ -22,6 +22,7 @@ const generateStyle = ({
   height = "100%",
   margin = "0",
   padding = "0",
+  border = "none",
   borderRadius = "20px",
   bgColor = "#fff",
   style = "",
@@ -34,6 +35,7 @@ const generateStyle = ({
   box-shadow: ${boxShadow};
   margin: ${margin};
   padding: ${padding};
+  border: ${border};
   border-radius: ${borderRadius};
   background-color: ${bgColor};
   ${style}

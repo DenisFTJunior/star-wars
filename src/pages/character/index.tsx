@@ -12,8 +12,8 @@ import TableCharacter from "./_TableCharactor";
 
 const CharactersPage = () => {
   return (
-    <Container minHeight="100vh">
-      <Flex direction="column">
+    <Container minHeight="100vh" height="100%">
+      <Flex direction="column" height="100%">
         <Quotes height="4rem" />
         <BreadCrumb
           options={[

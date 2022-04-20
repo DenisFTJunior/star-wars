@@ -25,7 +25,7 @@ const QUERY = gql`
         id
         name
       }
-      filmConnection: PersonFilmsConnection {
+      filmConnection {
         films {
           id
           title

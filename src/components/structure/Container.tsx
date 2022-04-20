@@ -28,11 +28,10 @@ const generateStyle = ({
   flex,
 }: LocalProps) =>
   css(`
-  ${flex ? `flex:${flex}` : ""}
+  ${flex ? `flex:${flex};` : ""}
   width:${width};
   ${minWidth ? `min-width:${minWidth};` : ""}
   ${maxWidth ? `max-width:${maxWidth};` : ""}
-  max-width:${maxWidth};
   height:${height};
   ${minHeight ? `min-height:${minHeight};` : ""}
   ${maxHeight ? `max-height:${maxHeight};` : ""}
