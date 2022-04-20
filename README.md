@@ -22,6 +22,7 @@
 - Pages (next pages)
 
 > ## Final notes
+
 - I enjoy create this project, because I'm a fan of start wars
-- Your enterprise is incrible and your mission is passionate, privacy is a fundamental right
+- Privacy is a fundamental right, I love what you are doing for defend this
 - If possible send me a feedback because I want to improve and be better!
