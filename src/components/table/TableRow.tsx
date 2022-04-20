@@ -7,6 +7,8 @@ import { flexProps } from "../types/flex";
 import { sizeProps } from "../types/size";
 import TableCell from "./TableCell";
 import Text from "../presentation/Text";
+import Button from "../actions/Button";
+import { useTableActions } from "./TableState";
 
 type LocalProps = sizeProps &
   flexProps &
@@ -14,6 +16,10 @@ type LocalProps = sizeProps &
     options: option[] | unformattedOption[];
     type?: string;
     bgColor?: string;
+    sort?: {
+      set: Function;
+      get: string;
+    };
   };
 
 const generateStyle = ({
@@ -40,6 +46,12 @@ const generateStyle = ({
 
 const TableRow = (props: LocalProps) => {
   const style = generateStyle(props);
+  const { setSort } = useTableActions();
+
+  const handleSort = (field) => {
+    setSort(field);
+  };
+
   return (
     <div className={style}>
       {props.options.map((option) => (
@@ -53,14 +65,17 @@ const TableRow = (props: LocalProps) => {
             {!!option.render &&
               props.type !== "header" &&
               option.render(option)}
-            {!option.render && (
-              <Text
-                element="span"
-                bold={props.type === "header" ? true : false}
-                color={props.type === "header" ? "#000" : "#454545"}
-              >
-                {props.type === "header" ? option.label : option.value}
+            {!option.render && props.type !== "header" && (
+              <Text element="span" color={"#454545"}>
+                {option.value}
               </Text>
+            )}
+            {props.type === "header" && (
+              <Button onClick={() => handleSort(option.value)}>
+                <Text element="span" bold color={"#000"}>
+                  {option.label}
+                </Text>
+              </Button>
             )}
           </>
         </TableCell>

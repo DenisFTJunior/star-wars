@@ -3,7 +3,9 @@ import { path } from "ramda";
 import React from "react";
 
 import { sizeProps } from "../types/size";
+import formatData from "./helpers/formatData";
 import TableRow from "./TableRow";
+import { useTableState } from "./TableState";
 import { option, unformattedOption } from "./types/options";
 
 type LocalProps = sizeProps & {
@@ -35,7 +37,9 @@ const generateStyle = ({ width, height }: LocalProps) =>
 `);
 
 const Table = (props: LocalProps) => {
+  const {sort, filter} = useTableState()
   const style = generateStyle(props);
+  console.log(props.data)
   return (
     <div className={style}>
       <TableRow
@@ -44,7 +48,8 @@ const Table = (props: LocalProps) => {
         height="100%"
         options={props.options}
       />
-      {props.data.map((item) => (
+
+      {formatData(filter, sort, props.data).map((item) => (
         <TableRow
           width="100%"
           height="100%"

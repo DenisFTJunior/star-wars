@@ -4,6 +4,7 @@ export type option = {
   flex: number;
   item: any[];
   render?: Function;
+  field?: string;
 };
 
 export type unformattedOption = {

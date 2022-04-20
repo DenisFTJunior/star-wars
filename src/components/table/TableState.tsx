@@ -21,8 +21,12 @@ const TableState = ({
   const [filter, setFilter] = useState("");
 
   return (
-    <ActionProvider value={{ setPage, setQte, setCount, setCursor }}>
-      <Provider value={{ page, qte, count, cursor }}>{children}</Provider>
+    <ActionProvider
+      value={{ setPage, setQte, setCount, setCursor, setSort, setFilter }}
+    >
+      <Provider value={{ page, qte, count, cursor, filter, sort }}>
+        {children}
+      </Provider>
     </ActionProvider>
   );
 };

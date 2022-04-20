@@ -3,7 +3,10 @@ import React, { useEffect, useState } from "react";
 import Table from "../../components/table/Table";
 import { unformattedOption } from "../../components/table/types/options";
 import { useCharacters, useCharactersState } from "./_load/LoaderCharacters";
-import { useTableActions } from "../../components/table/TableState";
+import {
+  useTableActions,
+  useTableState,
+} from "../../components/table/TableState";
 import Link from "../../components/actions/Link";
 import Text from "../../components/presentation/Text";
 import Container from "../../components/structure/Container";
