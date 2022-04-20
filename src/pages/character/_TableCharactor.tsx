@@ -6,6 +6,7 @@ import { useCharacters, useCharactersState } from "./_load/LoaderCharacters";
 import { useTableActions } from "../../components/table/TableState";
 import Link from "../../components/actions/Link";
 import Text from "../../components/presentation/Text";
+import Container from "../../components/structure/Container";
 
 const options: unformattedOption[] = [
   {
@@ -55,7 +56,11 @@ const TableCharacters = () => {
     setCursor(allPeople.pageInfo.endCursor);
   }, []);
 
-  return <Table data={people} options={options} />;
+  return (
+    <Container hideOnSmall>
+      <Table data={people} options={options} />
+    </Container>
+  );
 };
 
 export default TableCharacters;

@@ -7,6 +7,7 @@ import Container from "../../components/structure/Container";
 import Flex from "../../components/structure/Flex";
 import TableFotter from "../../components/table/TableFotter";
 import TableState from "../../components/table/TableState";
+import CardsCharacter from "./_CardsCharactor";
 import LoaderCharacters from "./_load/LoaderCharacters";
 import TableCharacter from "./_TableCharactor";
 
@@ -30,6 +31,7 @@ const CharactersPage = () => {
       <TableState>
         <LoaderCharacters>
           <TableCharacter />
+          <CardsCharacter />
           <TableFotter />
         </LoaderCharacters>
       </TableState>

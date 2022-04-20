@@ -16,12 +16,17 @@ const FilmCard = ({ film }: { film: Film }) => {
     <Container maxWidth="80%" width="25rem">
       <Panel
         dp={DP.NONE}
-        height="100%"
         padding="20px"
         margin="1rem"
         border="1px solid #646464"
       >
-        <Flex justify="flex-start" align="flex-start" wrap gap={1}>
+        <Flex
+          direction="row"
+          justify="flex-start"
+          align="flex-start"
+          wrap
+          gap={1}
+        >
           <CardItem label="Title" value={film.title} small />
           <CardItem label="Director" value={film.director} small />
           <CardItem label="Producers" value={film.producers.join(",")} small />

@@ -7,6 +7,7 @@ import { sizeProps } from "../types/size";
 type LocalProps = flexProps &
   sizeProps & {
     children: JSX.Element[] | JSX.Element;
+    onSmall?: boolean;
   };
 
 const generateStyle = ({
@@ -19,6 +20,7 @@ const generateStyle = ({
   alignContent,
   gap,
   flex,
+  onSmall,
 }: LocalProps) =>
   css(`
     width:${width || "100%"};
@@ -31,6 +33,13 @@ const generateStyle = ({
     align-items: ${align || "center"};
     align-content: ${alignContent || "flex-start"};
     gap: ${`${gap}rem` || 0};
+    ${
+      onSmall
+        ? `@media (max-width: 728px) {
+      flex-direction: column;
+    }`
+        : ""
+    }
 `);
 
 const Flex = (props: LocalProps) => {

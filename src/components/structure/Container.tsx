@@ -11,6 +11,8 @@ type LocalProps = sizeProps &
     bgColor?: string;
     flex?: number;
     children: JSX.Element[] | JSX.Element;
+    hideOnSmall?: boolean;
+    showOnSmall?: boolean;
   };
 
 const generateStyle = ({
@@ -26,8 +28,11 @@ const generateStyle = ({
   border,
   borderRadius,
   flex,
+  hideOnSmall,
+  showOnSmall,
 }: LocalProps) =>
   css(`
+  ${showOnSmall ? "display:none;" : ""}
   ${flex ? `flex:${flex};` : ""}
   width:${width};
   ${minWidth ? `min-width:${minWidth};` : ""}
@@ -40,6 +45,10 @@ const generateStyle = ({
   margin: ${margin};
   padding: ${padding};
   background-color: ${bgColor};
+  @media (max-width: 728px) {
+    ${hideOnSmall ? "display:none;" : ""}
+    ${showOnSmall ? "display:block;" : ""}
+  }
 `);
 
 const Container = (props: LocalProps) => {

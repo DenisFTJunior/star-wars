@@ -35,9 +35,9 @@ const CharacterPage = () => {
         <Flex justify="center">
           <CharCard character={character} />
         </Flex>
-        <Flex justify="flex-start" wrap>
+        <Flex justify="center" wrap direction="row" onSmall>
           {character?.filmConnection?.films.map((film) => (
-            <FilmCard film={film} />
+            <FilmCard film={film} key={`${film.releaseDate}+ ${film.title}`} />
           ))}
         </Flex>
       </Flex>
