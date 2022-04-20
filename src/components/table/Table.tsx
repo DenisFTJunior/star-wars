@@ -37,9 +37,9 @@ const generateStyle = ({ width, height }: LocalProps) =>
 `);
 
 const Table = (props: LocalProps) => {
-  const {sort, filter} = useTableState()
+  const { sort, filter } = useTableState();
   const style = generateStyle(props);
-  
+
   return (
     <div className={style}>
       <TableRow

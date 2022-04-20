@@ -21,7 +21,7 @@ const CardsCharacter = () => {
     <Container showOnSmall>
       <Flex onSmall justify="center" alignContent="center" align="center">
         {people.map((char) => (
-          <Link href={`/character/${char.id}`} >
+          <Link href={`/character/${char.id}`} key={char.id}>
             <CharCard character={char} />
           </Link>
         ))}

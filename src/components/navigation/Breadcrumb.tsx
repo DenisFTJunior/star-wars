@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { BsFillArrowRightSquareFill } from "react-icons/bs";
 import Container from "../structure/Container";
 
@@ -25,7 +25,7 @@ const BreadCrumb = ({
       >
         <Flex direction="row" justify="center" align="center" gap={1}>
           {options.map((item, index) => (
-            <>
+            <Fragment key={`${item.label}${item.path}`}>
               <MenuItem
                 label={item.label}
                 href={item.path}
@@ -33,12 +33,11 @@ const BreadCrumb = ({
                 width={itemWidth || "30%"}
                 padding="2px"
                 color="#757575"
-                key={item.label + item.path + Math.random()}
               />
               {!(options.length - 1 <= index) && (
                 <BsFillArrowRightSquareFill color="#757575" />
               )}{" "}
-            </>
+            </Fragment>
           ))}
         </Flex>
       </Container>

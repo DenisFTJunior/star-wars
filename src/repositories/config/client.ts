@@ -1,4 +1,9 @@
-import { ApolloClient, DefaultOptions, InMemoryCache } from "@apollo/client";
+import {
+  ApolloClient,
+  createHttpLink,
+  DefaultOptions,
+  InMemoryCache,
+} from "@apollo/client";
 
 export const cache = new InMemoryCache({
   typePolicies: {
@@ -30,8 +35,12 @@ const defaultOptions: DefaultOptions = {
   },
 };
 
+const link = createHttpLink({
+  uri: process.env.API_URL,
+});
+
 export const Client = new ApolloClient({
-  uri: `http://localhost:61475`,
+  link,
   cache,
   resolvers: {},
   defaultOptions,

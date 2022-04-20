@@ -55,6 +55,7 @@ const TableFotter = () => {
         <Flex direction="row" justify="center" align="center">
           {[5, 10, 20].map((item) => (
             <Button
+              key={Math.random() + item}
               onClick={() => {
                 setQte(item);
                 fetchMore({ variables: { first: item } });
