@@ -33,6 +33,7 @@ const BreadCrumb = ({
                 width={itemWidth || "30%"}
                 padding="2px"
                 color="#757575"
+                key={item.label + item.path + Math.random()}
               />
               {!(options.length - 1 <= index) && (
                 <BsFillArrowRightSquareFill color="#757575" />

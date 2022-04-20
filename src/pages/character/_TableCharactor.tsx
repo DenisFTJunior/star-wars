@@ -10,6 +10,8 @@ import {
 import Link from "../../components/actions/Link";
 import Text from "../../components/presentation/Text";
 import Container from "../../components/structure/Container";
+import Flex from "../../components/structure/Flex";
+import Input from "../../components/form/Input";
 
 const options: unformattedOption[] = [
   {
@@ -52,7 +54,7 @@ const options: unformattedOption[] = [
 const TableCharacters = () => {
   const { allPeople } = useCharactersState();
   const people = useCharacters();
-  const { setCursor, setCount } = useTableActions();
+  const { setCursor, setCount, setFilter } = useTableActions();
 
   useEffect(() => {
     setCount(allPeople.totalCount);
@@ -61,6 +63,15 @@ const TableCharacters = () => {
 
   return (
     <Container hideOnSmall>
+      <Flex direction="row" justify="flex-end">
+        <Input
+          width="15rem"
+          margin="0 2rem"
+          type="text"
+          onChange={(v) => setFilter(v)}
+          placeHolder="Search"
+        />
+      </Flex>
       <Table data={people} options={options} />
     </Container>
   );
