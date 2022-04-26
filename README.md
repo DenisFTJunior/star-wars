@@ -23,5 +23,4 @@
 
 > ## Final notes
 - I enjoy create this project, because I'm a fan of start wars
-- Privacy is a fundamental right, I love what you are doing for defend this
 - If possible send me a feedback because I want to improve and be better!
